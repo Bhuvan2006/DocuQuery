@@ -1,0 +1,480 @@
+1
+00:00:00,00 --> 00:00:01,02
+- [Instructor] A crucial part
+
+2
+00:00:01,02 --> 00:00:03,01
+of data science is data visualization,
+
+3
+00:00:03,01 --> 00:00:06,03
+which makes it all worthwhile by plotting useful insights
+
+4
+00:00:06,03 --> 00:00:09,04
+on different charts and in different formats.
+
+5
+00:00:09,04 --> 00:00:12,01
+We're going to look at the Matplotlib library,
+
+6
+00:00:12,01 --> 00:00:15,03
+which is a multi-platform data visualization tool
+
+7
+00:00:15,03 --> 00:00:17,01
+built on NumPy.
+
+8
+00:00:17,01 --> 00:00:20,03
+It's one of the most common visualization tools out there.
+
+9
+00:00:20,03 --> 00:00:24,01
+And the reason why Matplotlib has become so common
+
+10
+00:00:24,01 --> 00:00:26,08
+is its strength as a well-tested
+
+11
+00:00:26,08 --> 00:00:29,05
+cross-platform graphics engine.
+
+12
+00:00:29,05 --> 00:00:32,02
+In this video, we're going to discuss a few general tips
+
+13
+00:00:32,02 --> 00:00:34,05
+for using Matplotlib on how to set
+
+14
+00:00:34,05 --> 00:00:36,07
+different stylesheets for plotting.
+
+15
+00:00:36,07 --> 00:00:39,06
+What are the methods to display plots in different contexts?
+
+16
+00:00:39,06 --> 00:00:44,00
+Like in a script, IPython shell, or IPython Notebook?
+
+17
+00:00:44,00 --> 00:00:46,08
+And lastly, we're going to look at how we can save
+
+18
+00:00:46,08 --> 00:00:48,06
+a figure to a file.
+
+19
+00:00:48,06 --> 00:00:50,02
+So let's first look
+
+20
+00:00:50,02 --> 00:00:52,08
+at the important conventions for Matplotlib.
+
+21
+00:00:52,08 --> 00:00:56,03
+So generally, we import Matplotlib as MPL,
+
+22
+00:00:56,03 --> 00:00:58,06
+but most often you'll find yourself using
+
+23
+00:00:58,06 --> 00:01:01,08
+the pyplot module of the Matplotlib library,
+
+24
+00:01:01,08 --> 00:01:05,05
+which is abbreviated as plt over here.
+
+25
+00:01:05,05 --> 00:01:07,08
+And then you can set the context,
+
+26
+00:01:07,08 --> 00:01:09,04
+which we'll talk about in a bit.
+
+27
+00:01:09,04 --> 00:01:13,01
+Then I am importing the NumPy library as np.
+
+28
+00:01:13,01 --> 00:01:17,01
+Let's run the cell, import all the required libraries.
+
+29
+00:01:17,01 --> 00:01:19,09
+Now next up, is setting different stylesheets.
+
+30
+00:01:19,09 --> 00:01:23,02
+So we can use the plt.style directive
+
+31
+00:01:23,02 --> 00:01:27,02
+to choose an appropriate aesthetic styles for our figures.
+
+32
+00:01:27,02 --> 00:01:29,03
+So here we'll use the classic style.
+
+33
+00:01:29,03 --> 00:01:34,03
+So for that, all you need to do is set your style,
+
+34
+00:01:34,03 --> 00:01:39,06
+plt.style.use method and specify the stylesheet.
+
+35
+00:01:39,06 --> 00:01:41,07
+So let's say classic over here.
+
+36
+00:01:41,07 --> 00:01:44,05
+Now, let's create some random values.
+
+37
+00:01:44,05 --> 00:01:50,04
+X = np.random, using the rand and function.
+
+38
+00:01:50,04 --> 00:01:53,05
+And let's say we create 1000 values over here.
+
+39
+00:01:53,05 --> 00:01:58,02
+And if I plot a histogram for X,
+
+40
+00:01:58,02 --> 00:02:01,09
+so this is the classic stylesheet where I'm plotting
+
+41
+00:02:01,09 --> 00:02:04,04
+some random values and a histogram.
+
+42
+00:02:04,04 --> 00:02:07,00
+Great. Now, if I want to plot
+
+43
+00:02:07,00 --> 00:02:08,07
+this data in a different stylesheet,
+
+44
+00:02:08,07 --> 00:02:13,04
+all I need to do is specify the stylesheet again,
+
+45
+00:02:13,04 --> 00:02:18,08
+plt.style.use and let's mention seaborn-pastel over here.
+
+46
+00:02:18,08 --> 00:02:23,08
+And again we'll have to plt, call the plot function,
+
+47
+00:02:23,08 --> 00:02:29,06
+plt.hist and plotting a histogram. So pass X.
+
+48
+00:02:29,06 --> 00:02:31,05
+So this is again the histogram
+
+49
+00:02:31,05 --> 00:02:34,03
+in a seaborn-pastel stylesheet.
+
+50
+00:02:34,03 --> 00:02:37,04
+Now, you'll be wondering what all stylesheets are available.
+
+51
+00:02:37,04 --> 00:02:45,06
+So you can check that out using plt.styles.available.
+
+52
+00:02:45,06 --> 00:02:49,03
+All right. So use style.
+
+53
+00:02:49,03 --> 00:02:50,08
+Yeah. So this will list down
+
+54
+00:02:50,08 --> 00:02:55,09
+all the stylesheets that are available in the library.
+
+55
+00:02:55,09 --> 00:02:58,09
+Okay. So next up we have plotting graphs
+
+56
+00:02:58,09 --> 00:03:00,07
+in different contexts.
+
+57
+00:03:00,07 --> 00:03:04,03
+So first off, whenever you are plotting,
+
+58
+00:03:04,03 --> 00:03:07,01
+you would be working either through a script,
+
+59
+00:03:07,01 --> 00:03:11,03
+or through an IPython shell, or through an IPython Notebook.
+
+60
+00:03:11,03 --> 00:03:14,08
+So here we are going to talk about IPython Notebook,
+
+61
+00:03:14,08 --> 00:03:17,02
+but if you're plotting through a script,
+
+62
+00:03:17,02 --> 00:03:19,06
+you have to use plt.show.
+
+63
+00:03:19,06 --> 00:03:22,00
+If you are plotting through an IPython shell,
+
+64
+00:03:22,00 --> 00:03:25,02
+you have to use simply plotting this matplotlib.
+
+65
+00:03:25,02 --> 00:03:27,05
+And if we are using an IPython Notebook,
+
+66
+00:03:27,05 --> 00:03:30,03
+then we'll have to either use the inline context
+
+67
+00:03:30,03 --> 00:03:32,02
+or the notebook context.
+
+68
+00:03:32,02 --> 00:03:34,08
+So let's first look at the notebook context,
+
+69
+00:03:34,08 --> 00:03:38,01
+which is used for plotting interactive charts.
+
+70
+00:03:38,01 --> 00:03:39,06
+So let's look at that.
+
+71
+00:03:39,06 --> 00:03:43,03
+So again, it is denoted by the plot and the sign.
+
+72
+00:03:43,03 --> 00:03:48,02
+So plotting this matplotlib, and then specify the context.
+
+73
+00:03:48,02 --> 00:03:50,08
+So here we are using notebook
+
+74
+00:03:50,08 --> 00:03:54,04
+and I've defined some random data, linearly spaced values,
+
+75
+00:03:54,04 --> 00:03:56,08
+100 values between one and 30.
+
+76
+00:03:56,08 --> 00:03:59,03
+And then let's provide the values.
+
+77
+00:03:59,03 --> 00:04:07,00
+X let's call the sign function, np.sin and then plus X.
+
+78
+00:04:07,00 --> 00:04:09,01
+So these are my X and Y values.
+
+79
+00:04:09,01 --> 00:04:15,06
+Let's run this. So here I have the sign function
+
+80
+00:04:15,06 --> 00:04:16,07
+plotted for me.
+
+81
+00:04:16,07 --> 00:04:19,02
+And as you can see, this is all interactive.
+
+82
+00:04:19,02 --> 00:04:22,02
+As I move my cursor along the chart,
+
+83
+00:04:22,02 --> 00:04:24,00
+you see the X and Y values changing,
+
+84
+00:04:24,00 --> 00:04:25,08
+and then I have different methods.
+
+85
+00:04:25,08 --> 00:04:29,06
+So this is for downloading the figure, this is for zooming,
+
+86
+00:04:29,06 --> 00:04:31,06
+this is for panning axes on left mouse,
+
+87
+00:04:31,06 --> 00:04:33,05
+even on zoom with right.
+
+88
+00:04:33,05 --> 00:04:35,07
+So all of those things are available for us.
+
+89
+00:04:35,07 --> 00:04:39,08
+Now, if we look at the inline context,
+
+90
+00:04:39,08 --> 00:04:44,04
+so again, simply pass plotting this matplotlib
+
+91
+00:04:44,04 --> 00:04:48,04
+and specify the context again, plotting the inline chart.
+
+92
+00:04:48,04 --> 00:04:52,00
+So this is generally for static plots.
+
+93
+00:04:52,00 --> 00:04:56,02
+So this is how our plot looks like in inline context.
+
+94
+00:04:56,02 --> 00:05:01,01
+Great. Now the last part is saving the figure to a file.
+
+95
+00:05:01,01 --> 00:05:04,06
+Now, most often you'll find yourself using a file
+
+96
+00:05:04,06 --> 00:05:05,08
+in our report chart.
+
+97
+00:05:05,08 --> 00:05:08,03
+So you'll have to download all those files.
+
+98
+00:05:08,03 --> 00:05:11,05
+So you can do that using the save figure method.
+
+99
+00:05:11,05 --> 00:05:13,06
+So here we are plotting the same X
+
+100
+00:05:13,06 --> 00:05:15,03
+that we have defined above.
+
+101
+00:05:15,03 --> 00:05:18,05
+So let's call the cost function first,
+
+102
+00:05:18,05 --> 00:05:23,07
+np.cos X and let's denote it by a single solid line.
+
+103
+00:05:23,07 --> 00:05:29,01
+And then let's also plot sign function.
+
+104
+00:05:29,01 --> 00:05:33,03
+Pass X and let's denote it by a double dash.
+
+105
+00:05:33,03 --> 00:05:35,07
+And to save this figure,
+
+106
+00:05:35,07 --> 00:05:38,07
+we have initialized the figure above using the figure method
+
+107
+00:05:38,07 --> 00:05:43,01
+and you will have to use the save figure function
+
+108
+00:05:43,01 --> 00:05:47,04
+and pass the part where you want to save the file.
+
+109
+00:05:47,04 --> 00:05:54,01
+So let's call the file sinecos.png in PNG format
+
+110
+00:05:54,01 --> 00:05:55,08
+when I run the cell.
+
+111
+00:05:55,08 --> 00:05:57,07
+So this is the plot that I have.
+
+112
+00:05:57,07 --> 00:06:01,05
+Now the figure is saved, and you can look it up here
+
+113
+00:06:01,05 --> 00:06:05,08
+as I have the sinecos.png saved in my directory.
+
+114
+00:06:05,08 --> 00:06:08,09
+So we saw how we can use different stylesheets.
+
+115
+00:06:08,09 --> 00:06:10,08
+What are the important conventions?
+
+116
+00:06:10,08 --> 00:06:13,04
+Then we looked at what are the different contexts
+
+117
+00:06:13,04 --> 00:06:17,04
+that we can use, and lastly, how we can save the file.
+
+118
+00:06:17,04 --> 00:06:18,06
+So do check out
+
+119
+00:06:18,06 --> 00:06:21,09
+all of the methods although they're stylesheets,
+
+120
+00:06:21,09 --> 00:06:24,00
+and get some hands-on practice.
+

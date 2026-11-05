@@ -1,0 +1,656 @@
+1
+00:00:00,05 --> 00:00:02,07
+- [Instructor] Good visualizations guide the readers
+
+2
+00:00:02,07 --> 00:00:06,06
+to get the complete story that the data has to tell.
+
+3
+00:00:06,06 --> 00:00:10,01
+Now, to create guided plots using matplotlib
+
+4
+00:00:10,01 --> 00:00:12,00
+we can add labels to the plot.
+
+5
+00:00:12,00 --> 00:00:13,06
+The basic types of annotations
+
+6
+00:00:13,06 --> 00:00:15,07
+you will use are access labels and titles,
+
+7
+00:00:15,07 --> 00:00:19,03
+but we have more options to make the plots more informative.
+
+8
+00:00:19,03 --> 00:00:21,07
+So in this video, I'll walk you through methods
+
+9
+00:00:21,07 --> 00:00:23,02
+of adding text highlights,
+
+10
+00:00:23,02 --> 00:00:25,08
+annotating plots, and adding arrows to point
+
+11
+00:00:25,08 --> 00:00:28,08
+to a specific location in a plot.
+
+12
+00:00:28,08 --> 00:00:30,07
+So, first off we are importing the
+
+13
+00:00:30,07 --> 00:00:34,03
+required libraries matplotlib, pandas, NumPy.
+
+14
+00:00:34,03 --> 00:00:36,03
+And for this video,
+
+15
+00:00:36,03 --> 00:00:38,08
+we are going to be using the advertising.csv file
+
+16
+00:00:38,08 --> 00:00:40,04
+that we have, which contains the revenue
+
+17
+00:00:40,04 --> 00:00:44,08
+for all the media sources, TV, radio, newspaper.
+
+18
+00:00:44,08 --> 00:00:47,07
+Let's look at the average revenue
+
+19
+00:00:47,07 --> 00:00:50,08
+that we have from each one of them.
+
+20
+00:00:50,08 --> 00:00:53,04
+So, all of these values are in a hundred thousand.
+
+21
+00:00:53,04 --> 00:00:56,09
+TV has been 49.79 radio has 23.09,
+
+22
+00:00:56,09 --> 00:01:00,01
+and then newspaper has turned 29.64.
+
+23
+00:01:00,01 --> 00:01:04,04
+So let's go ahead and plot these averages on a bar chart.
+
+24
+00:01:04,04 --> 00:01:07,04
+So first I have initialized the plot figure
+
+25
+00:01:07,04 --> 00:01:10,04
+providing the size using the fixed size attribute
+
+26
+00:01:10,04 --> 00:01:12,07
+and then to calculate the revenue mean
+
+27
+00:01:12,07 --> 00:01:13,09
+we have to create a list.
+
+28
+00:01:13,09 --> 00:01:17,01
+So use the same mean method.
+
+29
+00:01:17,01 --> 00:01:20,01
+And we are going to skip the last column
+
+30
+00:01:20,01 --> 00:01:22,07
+which is the sales Column, we not interested in that.
+
+31
+00:01:22,07 --> 00:01:24,06
+Then we're going to extract all the column names,
+
+32
+00:01:24,06 --> 00:01:25,08
+all the media sources names.
+
+33
+00:01:25,08 --> 00:01:28,01
+So for this, this is simple,
+
+34
+00:01:28,01 --> 00:01:30,00
+Simply pass the data frame to the list
+
+35
+00:01:30,00 --> 00:01:33,08
+and it'll get you the quiet column names.
+
+36
+00:01:33,08 --> 00:01:35,08
+And we're going to skip the last one.
+
+37
+00:01:35,08 --> 00:01:38,04
+So here we are going to plot the bar chart.
+
+38
+00:01:38,04 --> 00:01:40,08
+So the bar chart contains the mode.
+
+39
+00:01:40,08 --> 00:01:42,02
+We have calculated the column names
+
+40
+00:01:42,02 --> 00:01:46,06
+on x axis and revenue, mean, average for each one of them.
+
+41
+00:01:46,06 --> 00:01:50,03
+And color is orange for each of the bar chart.
+
+42
+00:01:50,03 --> 00:01:52,07
+Now we are adding some title and labels.
+
+43
+00:01:52,07 --> 00:01:56,08
+Title of the plot as revenue generation from media sources,
+
+44
+00:01:56,08 --> 00:02:00,08
+X label is medium and then revenue on the Y axis.
+
+45
+00:02:00,08 --> 00:02:03,09
+Now in order to add average.
+
+46
+00:02:03,09 --> 00:02:06,09
+So the text for the revenue, average revenue
+
+47
+00:02:06,09 --> 00:02:08,06
+for each of those media sources
+
+48
+00:02:08,06 --> 00:02:12,01
+we are going to use the plt.text method.
+
+49
+00:02:12,01 --> 00:02:14,00
+Now I have created a loop.
+
+50
+00:02:14,00 --> 00:02:16,08
+The loop is basically to annotate each
+
+51
+00:02:16,08 --> 00:02:19,05
+of the bar with the respective average mean.
+
+52
+00:02:19,05 --> 00:02:24,01
+So the plt.text method, it takes the x and y coordinates
+
+53
+00:02:24,01 --> 00:02:26,00
+for where you want to place your text.
+
+54
+00:02:26,00 --> 00:02:28,02
+So we want to place,
+
+55
+00:02:28,02 --> 00:02:32,05
+so first you have to define your x axis, the x coordinate
+
+56
+00:02:32,05 --> 00:02:36,04
+and that would be our x axis plus the weight
+
+57
+00:02:36,04 --> 00:02:40,05
+of the bar divided by two,
+
+58
+00:02:40,05 --> 00:02:43,04
+so that it is at the middle of the bar.
+
+59
+00:02:43,04 --> 00:02:46,04
+And we want to place the text on top of the bar.
+
+60
+00:02:46,04 --> 00:02:50,06
+So that would be, get_height of the bar.
+
+61
+00:02:50,06 --> 00:02:53,01
+So it would place it on top.
+
+62
+00:02:53,01 --> 00:02:55,04
+And we want only two decimal places
+
+63
+00:02:55,04 --> 00:02:56,07
+and the floating bar number.
+
+64
+00:02:56,07 --> 00:02:59,03
+So that is that these denoting the revenue
+
+65
+00:02:59,03 --> 00:03:02,04
+for that particular bar for that particular media source.
+
+66
+00:03:02,04 --> 00:03:04,06
+Then horizontal alignment is center
+
+67
+00:03:04,06 --> 00:03:06,06
+and vertical alignment is bottom.
+
+68
+00:03:06,06 --> 00:03:08,01
+And when we run this,
+
+69
+00:03:08,01 --> 00:03:11,03
+so we get this plot with the average revenue for each
+
+70
+00:03:11,03 --> 00:03:15,01
+of the media sources placed on top of their respective bars.
+
+71
+00:03:15,01 --> 00:03:18,08
+This is how you can add text using the text method
+
+72
+00:03:18,08 --> 00:03:20,08
+from the plot object.
+
+73
+00:03:20,08 --> 00:03:25,03
+Now we can use the access.text method to add text
+
+74
+00:03:25,03 --> 00:03:28,04
+and specify let's say in a time series
+
+75
+00:03:28,04 --> 00:03:30,05
+you can specify the month or the day.
+
+76
+00:03:30,05 --> 00:03:33,06
+So here we are plotting the average
+
+77
+00:03:33,06 --> 00:03:38,00
+or not the TV revenue data for every five days.
+
+78
+00:03:38,00 --> 00:03:40,04
+So the slicing method here
+
+79
+00:03:40,04 --> 00:03:42,05
+five States that we had are plotting
+
+80
+00:03:42,05 --> 00:03:43,06
+for every five days
+
+81
+00:03:43,06 --> 00:03:46,00
+and then we are passing the plot method,
+
+82
+00:03:46,00 --> 00:03:49,02
+the access that we have initialized on top.
+
+83
+00:03:49,02 --> 00:03:52,06
+Now to plot the text or to annotate the plot.
+
+84
+00:03:52,06 --> 00:03:55,09
+The texts that we have to use would
+
+85
+00:03:55,09 --> 00:03:58,01
+be having some formatting styles.
+
+86
+00:03:58,01 --> 00:04:00,06
+So here we have defined the style
+
+87
+00:04:00,06 --> 00:04:06,01
+or the size to be 10 and color of the text to be black.
+
+88
+00:04:06,01 --> 00:04:08,00
+So this is the style that would
+
+89
+00:04:08,00 --> 00:04:10,01
+controls the text formatting.
+
+90
+00:04:10,01 --> 00:04:13,05
+And we'll have to add this dictionary
+
+91
+00:04:13,05 --> 00:04:16,09
+to the access.text method.
+
+92
+00:04:16,09 --> 00:04:19,03
+So I'm creating the labels over here.
+
+93
+00:04:19,03 --> 00:04:23,02
+So for 30 on the x axis, basically for 30th day,
+
+94
+00:04:23,02 --> 00:04:26,03
+I would be the marking it as month one
+
+95
+00:04:26,03 --> 00:04:30,04
+for 60th day, I would be marking it as month two,
+
+96
+00:04:30,04 --> 00:04:32,06
+50 is basically telling us that we want
+
+97
+00:04:32,06 --> 00:04:35,08
+where do we want the text to be placed on the plot
+
+98
+00:04:35,08 --> 00:04:37,09
+So that is the y coordinate.
+
+99
+00:04:37,09 --> 00:04:40,03
+And then 90 is month three,
+
+100
+00:04:40,03 --> 00:04:42,07
+so on and so forth, you can keep adding labels.
+
+101
+00:04:42,07 --> 00:04:46,02
+Then I'll add horizontal alignment for the last two.
+
+102
+00:04:46,02 --> 00:04:48,08
+Horizontal alignment is center.
+
+103
+00:04:48,08 --> 00:04:52,07
+And when we plot this, you can see that month one, month two
+
+104
+00:04:52,07 --> 00:04:56,07
+and month three have been added onto the plot as
+
+105
+00:04:56,07 --> 00:05:01,07
+per the values, the x and y by values that we have specified
+
+106
+00:05:01,07 --> 00:05:03,07
+in the access.text method.
+
+107
+00:05:03,07 --> 00:05:07,05
+You can go on and keep creating these annotations
+
+108
+00:05:07,05 --> 00:05:10,08
+for your plots to make them more informative.
+
+109
+00:05:10,08 --> 00:05:14,04
+Now, the last thing is we can also add arrows to specify
+
+110
+00:05:14,04 --> 00:05:17,01
+to a particular location on the plot.
+
+111
+00:05:17,01 --> 00:05:20,02
+So again, initialize the plot, create some random values.
+
+112
+00:05:20,02 --> 00:05:21,08
+I have created thousand values,
+
+113
+00:05:21,08 --> 00:05:23,04
+In the range zero to 20.
+
+114
+00:05:23,04 --> 00:05:26,02
+All of these are linearly spaced.
+
+115
+00:05:26,02 --> 00:05:29,05
+And I'm creating a plot for the sine function.
+
+116
+00:05:29,05 --> 00:05:32,03
+So simply calling the plot method with the sine function
+
+117
+00:05:32,03 --> 00:05:35,01
+and x axis, I want the axis to be equal.
+
+118
+00:05:35,01 --> 00:05:38,03
+Now in order to add arrows for the local minimum
+
+119
+00:05:38,03 --> 00:05:42,02
+and the four local maximum on the sine plot,
+
+120
+00:05:42,02 --> 00:05:45,03
+I'll have to define the x and y coordinates.
+
+121
+00:05:45,03 --> 00:05:49,00
+And I am using the access.annotate method.
+
+122
+00:05:49,00 --> 00:05:51,04
+Which provides us with various options
+
+123
+00:05:51,04 --> 00:05:55,05
+to plot and annotate the plots flexibly.
+
+124
+00:05:55,05 --> 00:05:58,03
+And we do have some functions as well.
+
+125
+00:05:58,03 --> 00:06:02,03
+So we have an arrow function, but that creates an SVG object
+
+126
+00:06:02,03 --> 00:06:04,09
+and we have to deal with many other issues there.
+
+127
+00:06:04,09 --> 00:06:07,06
+So we'll be using the annotate method.
+
+128
+00:06:07,06 --> 00:06:12,08
+So x and y coordinates, So we have 1.71 for local maximum
+
+129
+00:06:12,08 --> 00:06:15,08
+and the value would be one for sine function.
+
+130
+00:06:15,08 --> 00:06:18,04
+x, y takes, where do we want to place the text
+
+131
+00:06:18,04 --> 00:06:21,07
+10,4 for would be the coordinator for that.
+
+132
+00:06:21,07 --> 00:06:26,06
+Then facecolor, we can define the color of our arrow.
+
+133
+00:06:26,06 --> 00:06:28,03
+Let's say black.
+
+134
+00:06:28,03 --> 00:06:33,04
+And the shrink size is let's say 0.05.
+
+135
+00:06:33,04 --> 00:06:35,06
+And this will plot the arrow for us.
+
+136
+00:06:35,06 --> 00:06:37,03
+now for local minimum,
+
+137
+00:06:37,03 --> 00:06:40,00
+I have a different kind of arrow head.
+
+138
+00:06:40,00 --> 00:06:42,06
+So again, providing the X and Y coordinates
+
+139
+00:06:42,06 --> 00:06:47,05
+for a local minimum, then the text coordinates
+
+140
+00:06:47,05 --> 00:06:50,05
+and the arrowprops dictionary, basically governs
+
+141
+00:06:50,05 --> 00:06:53,03
+What the style of that arrow is going to be.
+
+142
+00:06:53,03 --> 00:06:56,06
+so Arrowstyle, facecolor, shrink size,
+
+143
+00:06:56,06 --> 00:06:58,02
+and then we have connection style.
+
+144
+00:06:58,02 --> 00:07:01,00
+If you want to provide some curve to your arrow.
+
+145
+00:07:01,00 --> 00:07:02,01
+So you can do that.
+
+146
+00:07:02,01 --> 00:07:05,02
+And all of these options are actually well documented
+
+147
+00:07:05,02 --> 00:07:07,09
+in the matplotlib documentation.
+
+148
+00:07:07,09 --> 00:07:08,09
+So if we run this,
+
+149
+00:07:08,09 --> 00:07:11,07
+you'll see we will have two different kinds of arrow.
+
+150
+00:07:11,07 --> 00:07:13,03
+So for local maximum
+
+151
+00:07:13,03 --> 00:07:16,06
+which is facecolor black and shrink size 0.05
+
+152
+00:07:16,06 --> 00:07:21,06
+that is how we are plotting those arrows and local minimum,
+
+153
+00:07:21,06 --> 00:07:23,08
+this is containing the connectionstyle that
+
+154
+00:07:23,08 --> 00:07:26,08
+we have provided with angle B equals minus 90.
+
+155
+00:07:26,08 --> 00:07:29,03
+So that style is basically adding that curve.
+
+156
+00:07:29,03 --> 00:07:31,02
+Now, there are a bunch of other ways
+
+157
+00:07:31,02 --> 00:07:34,07
+a bunch of other methods and styles that you can use.
+
+158
+00:07:34,07 --> 00:07:36,05
+So go ahead and get some practice.
+
+159
+00:07:36,05 --> 00:07:39,09
+And we have learned how to add text highlights
+
+160
+00:07:39,09 --> 00:07:42,01
+how to add arrows on the plots
+
+161
+00:07:42,01 --> 00:07:44,03
+and how we can add text
+
+162
+00:07:44,03 --> 00:07:47,08
+to a particular plot to specify the month
+
+163
+00:07:47,08 --> 00:07:50,02
+in a time series or day in a time series.
+
+164
+00:07:50,02 --> 00:07:53,00
+So that was all about this video.
+

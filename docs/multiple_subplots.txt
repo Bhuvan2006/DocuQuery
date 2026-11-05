@@ -1,0 +1,776 @@
+1
+00:00:00,05 --> 00:00:01,09
+- [Instructor] Sometimes it is helpful
+
+2
+00:00:01,09 --> 00:00:04,09
+to compare different plots of data side by side.
+
+3
+00:00:04,09 --> 00:00:08,01
+To avail this Matplotlib has the concept of subplots,
+
+4
+00:00:08,01 --> 00:00:10,04
+that is, grouping of smaller axes
+
+5
+00:00:10,04 --> 00:00:13,02
+that can exist together within a single figure.
+
+6
+00:00:13,02 --> 00:00:15,08
+These subplots might be in sets
+
+7
+00:00:15,08 --> 00:00:17,04
+or grids of plots
+
+8
+00:00:17,04 --> 00:00:20,02
+or other complicated layouts.
+
+9
+00:00:20,02 --> 00:00:22,05
+So in this video, we'll explore different methods
+
+10
+00:00:22,05 --> 00:00:25,07
+of creating subplots using matplotlib.
+
+11
+00:00:25,07 --> 00:00:28,04
+So first off, we have imported the matplotlib
+
+12
+00:00:28,04 --> 00:00:29,09
+and numpy libraries.
+
+13
+00:00:29,09 --> 00:00:32,04
+And then we're going to look at very simple method
+
+14
+00:00:32,04 --> 00:00:34,09
+of creating a subplot using the axes method.
+
+15
+00:00:34,09 --> 00:00:37,07
+So we're going to simply create an inset axes
+
+16
+00:00:37,07 --> 00:00:39,00
+inside another axes.
+
+17
+00:00:39,00 --> 00:00:43,08
+So, first off I have the axis one, which is a simple axis.
+
+18
+00:00:43,08 --> 00:00:46,07
+Now I'm going to specify another axes
+
+19
+00:00:46,07 --> 00:00:48,03
+inside the axes one
+
+20
+00:00:48,03 --> 00:00:52,01
+by specifying the X and Y coordinates 0.65,
+
+21
+00:00:52,01 --> 00:00:53,08
+0.65
+
+22
+00:00:53,08 --> 00:00:55,05
+then 0.2
+
+23
+00:00:55,05 --> 00:00:56,07
+and 0.2.
+
+24
+00:00:56,07 --> 00:00:58,05
+So all these values.
+
+25
+00:00:58,05 --> 00:01:02,02
+So this is creating an inset at the top right corner
+
+26
+00:01:02,02 --> 00:01:03,05
+of axes one
+
+27
+00:01:03,05 --> 00:01:07,08
+by setting the X and Y positions to 0.65,
+
+28
+00:01:07,08 --> 00:01:10,08
+that is starting at 65% of the width
+
+29
+00:01:10,08 --> 00:01:14,01
+and 65% of the height of the figure.
+
+30
+00:01:14,01 --> 00:01:17,00
+And then X and Y extends to
+
+31
+00:01:17,00 --> 00:01:18,02
+0.2,
+
+32
+00:01:18,02 --> 00:01:22,04
+that is the size of the axes is 20% of the width
+
+33
+00:01:22,04 --> 00:01:25,01
+and 20% of the height of the figure.
+
+34
+00:01:25,01 --> 00:01:27,08
+So if you run this, we get an inset
+
+35
+00:01:27,08 --> 00:01:30,08
+on the top right corner of axis one.
+
+36
+00:01:30,08 --> 00:01:33,07
+So that's how we can create a simple subplot.
+
+37
+00:01:33,07 --> 00:01:37,04
+Another way of creating a subplot is add_axes method.
+
+38
+00:01:37,04 --> 00:01:39,09
+So first off we have initialized our figure
+
+39
+00:01:39,09 --> 00:01:41,05
+using the figure method.
+
+40
+00:01:41,05 --> 00:01:43,01
+Then the figure method
+
+41
+00:01:43,01 --> 00:01:46,06
+has this method called add_axes method.
+
+42
+00:01:46,06 --> 00:01:49,03
+Now, here we are creating a vertically stacked plot.
+
+43
+00:01:49,03 --> 00:01:52,09
+So the calling signature of add_axes method
+
+44
+00:01:52,09 --> 00:01:54,04
+is that it takes a rectangle.
+
+45
+00:01:54,04 --> 00:01:58,00
+Now this rectangle is basically a list that we have here,
+
+46
+00:01:58,00 --> 00:02:00,04
+which contains X-coordinate, Y-coordinate,
+
+47
+00:02:00,04 --> 00:02:01,09
+width and height,
+
+48
+00:02:01,09 --> 00:02:06,06
+which is denoting the lower left point on the new axes,
+
+49
+00:02:06,06 --> 00:02:10,01
+in the figure coordinates and its height and its width.
+
+50
+00:02:10,01 --> 00:02:12,09
+So the axes is positioned in absolute coordinates
+
+51
+00:02:12,09 --> 00:02:13,08
+on the canvas.
+
+52
+00:02:13,08 --> 00:02:15,09
+So let's say if I define,
+
+53
+00:02:15,09 --> 00:02:17,06
+I start from 0.1
+
+54
+00:02:17,06 --> 00:02:19,02
+then
+
+55
+00:02:19,02 --> 00:02:20,01
+0.5,
+
+56
+00:02:20,01 --> 00:02:23,05
+which is the upper plot that I'm defining.
+
+57
+00:02:23,05 --> 00:02:24,07
+Then 0.8
+
+58
+00:02:24,07 --> 00:02:25,05
+and
+
+59
+00:02:25,05 --> 00:02:27,02
+let's say 0.4.
+
+60
+00:02:27,02 --> 00:02:29,05
+These are the coordinates of our rectangle.
+
+61
+00:02:29,05 --> 00:02:31,04
+Then for axis two,
+
+62
+00:02:31,04 --> 00:02:34,04
+let's say the X-coordinate would remain the same,
+
+63
+00:02:34,04 --> 00:02:37,09
+then for Y let's say, this is the lower plot,
+
+64
+00:02:37,09 --> 00:02:40,00
+so let's bring it down to 0.1
+
+65
+00:02:40,00 --> 00:02:42,06
+and width and height should remain the same.
+
+66
+00:02:42,06 --> 00:02:45,03
+So that is how we're going to plot it.
+
+67
+00:02:45,03 --> 00:02:48,03
+Now I'm creating some random linearly spaced values,
+
+68
+00:02:48,03 --> 00:02:50,03
+ranging from zero to 30
+
+69
+00:02:50,03 --> 00:02:52,03
+and axes one plotting,
+
+70
+00:02:52,03 --> 00:02:55,01
+let's say cos and sine function.
+
+71
+00:02:55,01 --> 00:02:56,07
+So,
+
+72
+00:02:56,07 --> 00:02:59,05
+np.cos(x)
+
+73
+00:02:59,05 --> 00:03:03,05
+and similarly you can pass
+
+74
+00:03:03,05 --> 00:03:06,02
+np.sine(x).
+
+75
+00:03:06,02 --> 00:03:08,00
+Run it.
+
+76
+00:03:08,00 --> 00:03:11,05
+So we've got the vertically stack plot over here.
+
+77
+00:03:11,05 --> 00:03:15,01
+The upper plot is basically the cos function
+
+78
+00:03:15,01 --> 00:03:17,06
+and the lower part is the sine function.
+
+79
+00:03:17,06 --> 00:03:20,01
+And you can see the values that we have defined.
+
+80
+00:03:20,01 --> 00:03:23,08
+It is all complying with those X and Y
+
+81
+00:03:23,08 --> 00:03:26,01
+and width and height of the plot.
+
+82
+00:03:26,01 --> 00:03:26,09
+Great.
+
+83
+00:03:26,09 --> 00:03:29,04
+Now the next thing is creating subplots.
+
+84
+00:03:29,04 --> 00:03:32,06
+We have aligned columns or rows of subplots,
+
+85
+00:03:32,06 --> 00:03:34,03
+which is used quite often.
+
+86
+00:03:34,03 --> 00:03:37,02
+matplotlib has several convenience routines
+
+87
+00:03:37,02 --> 00:03:39,01
+that make them easy to create.
+
+88
+00:03:39,01 --> 00:03:42,01
+So the lowest level of these routines
+
+89
+00:03:42,01 --> 00:03:43,00
+is
+
+90
+00:03:43,00 --> 00:03:44,05
+plt.subplot method,
+
+91
+00:03:44,05 --> 00:03:47,06
+which creates a single subplot within a grid.
+
+92
+00:03:47,06 --> 00:03:51,07
+So here a very simple method is, returns the figure in axes.
+
+93
+00:03:51,07 --> 00:03:55,04
+So we are going to use the subplot method here.
+
+94
+00:03:55,04 --> 00:03:58,00
+Now the subplot takes the number of rows and columns
+
+95
+00:03:58,00 --> 00:03:58,08
+that we want to create.
+
+96
+00:03:58,08 --> 00:04:01,09
+Let's say I want to create three rows of four figures,
+
+97
+00:04:01,09 --> 00:04:03,06
+so four columns,
+
+98
+00:04:03,06 --> 00:04:07,04
+and you can define if you want to share the X-axis or not.
+
+99
+00:04:07,04 --> 00:04:10,08
+So sharex is the attribute.
+
+100
+00:04:10,08 --> 00:04:13,05
+Let's say I want to share the axes with columns,
+
+101
+00:04:13,05 --> 00:04:15,03
+each column,
+
+102
+00:04:15,03 --> 00:04:16,04
+and share,
+
+103
+00:04:16,04 --> 00:04:19,01
+let's say, Y-axis with each row.
+
+104
+00:04:19,01 --> 00:04:22,01
+So you can provide those parameters around it.
+
+105
+00:04:22,01 --> 00:04:26,05
+And it will create three rows of four plots
+
+106
+00:04:26,05 --> 00:04:28,08
+and it takes a few seconds, so yeah.
+
+107
+00:04:28,08 --> 00:04:29,06
+As you can see,
+
+108
+00:04:29,06 --> 00:04:33,00
+we have got three rows of four plots each,
+
+109
+00:04:33,00 --> 00:04:37,04
+and the axes are shared along columns
+
+110
+00:04:37,04 --> 00:04:38,04
+and axes
+
+111
+00:04:38,04 --> 00:04:39,07
+and rows.
+
+112
+00:04:39,07 --> 00:04:41,08
+So here,
+
+113
+00:04:41,08 --> 00:04:42,07
+we have the X-axes.
+
+114
+00:04:42,07 --> 00:04:46,01
+So I've created a simple plot, just to demonstrate
+
+115
+00:04:46,01 --> 00:04:48,00
+how this would look like
+
+116
+00:04:48,00 --> 00:04:50,03
+in a general real-life scenario.
+
+117
+00:04:50,03 --> 00:04:52,08
+So I'm creating a sine plot.
+
+118
+00:04:52,08 --> 00:04:53,07
+Once that is done,
+
+119
+00:04:53,07 --> 00:04:56,06
+I'm again, simply creating a figure,
+
+120
+00:04:56,06 --> 00:04:58,01
+simple subplot
+
+121
+00:04:58,01 --> 00:05:02,02
+and setting the title, plotting X and Y values.
+
+122
+00:05:02,02 --> 00:05:04,07
+So this is my simple sine plot.
+
+123
+00:05:04,07 --> 00:05:08,03
+Now, if I want to create two plots side by side,
+
+124
+00:05:08,03 --> 00:05:11,03
+so again, I can unpack the output array,
+
+125
+00:05:11,03 --> 00:05:13,09
+so this would create two axes for me.
+
+126
+00:05:13,09 --> 00:05:17,07
+So let's say I consume the first one as axis one,
+
+127
+00:05:17,07 --> 00:05:19,06
+and then axis two,
+
+128
+00:05:19,06 --> 00:05:21,09
+unpacking them in this particular manner.
+
+129
+00:05:21,09 --> 00:05:23,03
+So this would be,
+
+130
+00:05:23,03 --> 00:05:26,01
+I have provided one row and two columns
+
+131
+00:05:26,01 --> 00:05:27,04
+to the subplots method
+
+132
+00:05:27,04 --> 00:05:29,03
+and I'm sharing the Y-axis.
+
+133
+00:05:29,03 --> 00:05:31,02
+So I've shared Y equals True,
+
+134
+00:05:31,02 --> 00:05:33,05
+plotting the X and Y that I've calculated above
+
+135
+00:05:33,05 --> 00:05:35,04
+and in the right,
+
+136
+00:05:35,04 --> 00:05:37,03
+which is the axes two,
+
+137
+00:05:37,03 --> 00:05:39,04
+I am plotting a scatter plot.
+
+138
+00:05:39,04 --> 00:05:40,06
+So
+
+139
+00:05:40,06 --> 00:05:41,06
+if I run this,
+
+140
+00:05:41,06 --> 00:05:44,02
+I have two plot side-by-side,
+
+141
+00:05:44,02 --> 00:05:46,00
+two views of the same plot.
+
+142
+00:05:46,00 --> 00:05:48,05
+And I have scatter plot on the right,
+
+143
+00:05:48,05 --> 00:05:51,07
+and I have shared the Y-axis.
+
+144
+00:05:51,07 --> 00:05:53,09
+So this is how you can use the subplot.
+
+145
+00:05:53,09 --> 00:05:56,03
+Now there are different combinations that you can use.
+
+146
+00:05:56,03 --> 00:05:59,08
+We can create a polar axes like this.
+
+147
+00:05:59,08 --> 00:06:02,05
+So here I am unpacking, I'm not unpacking,
+
+148
+00:06:02,05 --> 00:06:06,02
+I'm simply consuming it in the axes function,
+
+149
+00:06:06,02 --> 00:06:08,02
+axs variable that I've created over here.
+
+150
+00:06:08,02 --> 00:06:12,02
+And the subplot is basically having two cross two.
+
+151
+00:06:12,02 --> 00:06:13,02
+So two rows
+
+152
+00:06:13,02 --> 00:06:15,04
+of two plots each
+
+153
+00:06:15,04 --> 00:06:18,00
+I'm providing the polar axes or subplot_kw.
+
+154
+00:06:18,00 --> 00:06:21,06
+So I'm setting the dictionary parameter polar to True.
+
+155
+00:06:21,06 --> 00:06:23,07
+So this would create polar axes for me,
+
+156
+00:06:23,07 --> 00:06:27,05
+and I can manipulate each of those graphs using indexing.
+
+157
+00:06:27,05 --> 00:06:32,02
+So I am plotting the X and Y values in the top left
+
+158
+00:06:32,02 --> 00:06:33,06
+and the bottom right plots.
+
+159
+00:06:33,06 --> 00:06:35,04
+So if I run this,
+
+160
+00:06:35,04 --> 00:06:37,07
+you'll see the sine plot in the top left
+
+161
+00:06:37,07 --> 00:06:38,09
+and the bottom right,
+
+162
+00:06:38,09 --> 00:06:40,01
+which you can see,
+
+163
+00:06:40,01 --> 00:06:42,06
+I used indexing
+
+164
+00:06:42,06 --> 00:06:43,04
+to manipulate
+
+165
+00:06:43,04 --> 00:06:45,03
+and access those graphs.
+
+166
+00:06:45,03 --> 00:06:46,08
+Zero comma zero is the top left
+
+167
+00:06:46,08 --> 00:06:49,03
+and one comma one is the bottom right.
+
+168
+00:06:49,03 --> 00:06:50,08
+Accordingly, you can manipulate
+
+169
+00:06:50,08 --> 00:06:53,05
+each one of these charts.
+
+170
+00:06:53,05 --> 00:06:56,00
+Now we have some other combinations.
+
+171
+00:06:56,00 --> 00:06:59,07
+So based on how you want to share the axes.
+
+172
+00:06:59,07 --> 00:07:01,06
+So if you want to share X,
+
+173
+00:07:01,06 --> 00:07:03,04
+you can say column,
+
+174
+00:07:03,04 --> 00:07:06,08
+this would create a two cross two grid for you.
+
+175
+00:07:06,08 --> 00:07:08,07
+And similarly for Y-axis,
+
+176
+00:07:08,07 --> 00:07:10,07
+you can say column,
+
+177
+00:07:10,07 --> 00:07:13,07
+so share the Y-axis for each row.
+
+178
+00:07:13,07 --> 00:07:16,04
+And this would share the Y-axis
+
+179
+00:07:16,04 --> 00:07:18,00
+with each row
+
+180
+00:07:18,00 --> 00:07:19,09
+of the subplots.
+
+181
+00:07:19,09 --> 00:07:23,04
+If you want to share the Y and X-axis for all the plots,
+
+182
+00:07:23,04 --> 00:07:24,06
+you can do that as well,
+
+183
+00:07:24,06 --> 00:07:28,03
+specify all, and this will be sharing X and Y
+
+184
+00:07:28,03 --> 00:07:32,01
+both to all the axes, like this.
+
+185
+00:07:32,01 --> 00:07:33,00
+That was great.
+
+186
+00:07:33,00 --> 00:07:35,01
+So that was all about subplots.
+
+187
+00:07:35,01 --> 00:07:37,03
+We saw how we can create an inset graph,
+
+188
+00:07:37,03 --> 00:07:40,04
+how we can create a vertically stacked plot,
+
+189
+00:07:40,04 --> 00:07:43,06
+how we can create subplots using the subplots routine.
+
+190
+00:07:43,06 --> 00:07:45,03
+And this is how you can create
+
+191
+00:07:45,03 --> 00:07:47,02
+different combinations of layouts.
+
+192
+00:07:47,02 --> 00:07:48,00
+So go ahead
+
+193
+00:07:48,00 --> 00:07:49,05
+and get some hands on practice
+
+194
+00:07:49,05 --> 00:07:53,00
+with each one of these layouts.
+
